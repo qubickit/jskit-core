@@ -1,5 +1,5 @@
 {
-  "name": "@qubic-lib/jskit-core",
+  "name": "@qubic-labs/core",
   "version": "0.0.0-development",
   "module": "index.ts",
   "type": "module",

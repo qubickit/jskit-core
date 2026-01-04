@@ -19,7 +19,7 @@ Constants:
 ## Example
 
 ```ts
-import { buildSignedTransaction, privateKeyFromSeed, publicKeyFromIdentity, identityFromSeed } from "@qubic-lib/jskit-core";
+import { buildSignedTransaction, privateKeyFromSeed, publicKeyFromIdentity, identityFromSeed } from "@qubic-labs/core";
 
 const seed = "jvhbyzjinlyutyuhsweuxiwootqoevjqwqmdhjeohrytxjxidpbcfyg";
 const secretKey32 = await privateKeyFromSeed(seed);

@@ -16,7 +16,7 @@ Exports:
 ## Examples
 
 ```ts
-import { identityFromSeed, privateKeyFromSeed, publicKeyFromSeed } from "@qubic-lib/jskit-core";
+import { identityFromSeed, privateKeyFromSeed, publicKeyFromSeed } from "@qubic-labs/core";
 
 const seed = "jvhbyzjinlyutyuhsweuxiwootqoevjqwqmdhjeohrytxjxidpbcfyg";
 console.log(await identityFromSeed(seed));

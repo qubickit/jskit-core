@@ -10,7 +10,7 @@ Exports:
 ## Examples
 
 ```ts
-import { identityFromPublicKey, publicKeyFromIdentity, verifyIdentity } from "@qubic-lib/jskit-core";
+import { identityFromPublicKey, publicKeyFromIdentity, verifyIdentity } from "@qubic-labs/core";
 
 const id = "AFZPUAIYVPNUYGJRQVLUKOPPVLHAZQTGLYAAUUNBXFTVTAMSBKQBLEIEPCVJ";
 console.log(verifyIdentity(id)); // true/false
