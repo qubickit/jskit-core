@@ -19,6 +19,11 @@ export {
   writeU64LE,
 } from "./src/primitives/number64.js";
 export { encodeBroadcastTransactionPacket } from "./src/protocol/broadcast-transaction.js";
+export type { RequestContractFunctionParams } from "./src/protocol/contract-function.js";
+export {
+  decodeRespondContractFunction,
+  encodeRequestContractFunction,
+} from "./src/protocol/contract-function.js";
 export type { RespondEntity } from "./src/protocol/entity.js";
 export { decodeRespondEntity, encodeRequestEntity } from "./src/protocol/entity.js";
 export { NetworkMessageType } from "./src/protocol/message-types.js";
