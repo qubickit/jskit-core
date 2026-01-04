@@ -6,5 +6,6 @@ export {
   encodeRequestResponseHeader,
   MAX_PACKET_SIZE,
 } from "./src/protocol/request-response-header.js";
+export { END_RESPONSE_TYPE, readUntilEndResponse } from "./src/protocol/stream.js";
 export { createTcpTransport } from "./src/transport/tcp.js";
 export type { Transport } from "./src/transport/transport.js";
