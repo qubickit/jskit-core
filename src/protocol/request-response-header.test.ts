@@ -1,8 +1,8 @@
 import { describe, expect, it } from "bun:test";
 import {
-  MAX_PACKET_SIZE,
   decodeRequestResponseHeader,
   encodeRequestResponseHeader,
+  MAX_PACKET_SIZE,
 } from "./request-response-header.js";
 
 describe("RequestResponseHeader", () => {
@@ -16,7 +16,11 @@ describe("RequestResponseHeader", () => {
   });
 
   it("encodes max size", () => {
-    const encoded = encodeRequestResponseHeader({ size: MAX_PACKET_SIZE, type: 255, dejavu: 0xffffffff });
+    const encoded = encodeRequestResponseHeader({
+      size: MAX_PACKET_SIZE,
+      type: 255,
+      dejavu: 0xffffffff,
+    });
     const decoded = decodeRequestResponseHeader(encoded);
     expect(decoded.size).toBe(MAX_PACKET_SIZE);
     expect(decoded.type).toBe(255);
@@ -25,7 +29,9 @@ describe("RequestResponseHeader", () => {
 
   it("rejects invalid size", () => {
     expect(() => encodeRequestResponseHeader({ size: 0, type: 0, dejavu: 0 })).toThrow();
-    expect(() => encodeRequestResponseHeader({ size: MAX_PACKET_SIZE + 1, type: 0, dejavu: 0 })).toThrow();
+    expect(() =>
+      encodeRequestResponseHeader({ size: MAX_PACKET_SIZE + 1, type: 0, dejavu: 0 }),
+    ).toThrow();
   });
 
   it("rejects invalid type", () => {
@@ -35,7 +41,9 @@ describe("RequestResponseHeader", () => {
 
   it("rejects invalid dejavu", () => {
     expect(() => encodeRequestResponseHeader({ size: 8, type: 0, dejavu: -1 })).toThrow();
-    expect(() => encodeRequestResponseHeader({ size: 8, type: 0, dejavu: 0x1_0000_0000 })).toThrow();
+    expect(() =>
+      encodeRequestResponseHeader({ size: 8, type: 0, dejavu: 0x1_0000_0000 }),
+    ).toThrow();
   });
 
   it("rejects decode of short buffer", () => {
@@ -59,4 +67,3 @@ describe("RequestResponseHeader", () => {
     }
   });
 });
-

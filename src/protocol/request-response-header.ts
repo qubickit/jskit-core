@@ -39,7 +39,7 @@ export function decodeRequestResponseHeader(bytes: Uint8Array): RequestResponseH
     throw new RangeError("bytes must be at least 8 bytes");
   }
 
-  const size = (bytes[0] | (bytes[1] << 8) | (bytes[2] << 16)) >>> 0;
+  const size = ((bytes[0] ?? 0) | ((bytes[1] ?? 0) << 8) | ((bytes[2] ?? 0) << 16)) >>> 0;
   const type = bytes[3] ?? 0;
   const view = new DataView(bytes.buffer, bytes.byteOffset, bytes.byteLength);
   const dejavu = view.getUint32(4, true);
@@ -54,4 +54,3 @@ export function decodeRequestResponseHeader(bytes: Uint8Array): RequestResponseH
 
   return { size, type, dejavu };
 }
-

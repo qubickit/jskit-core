@@ -3,10 +3,15 @@
   "module": "index.ts",
   "type": "module",
   "scripts": {
+    "check": "biome check .",
+    "format": "biome format --write .",
+    "lint": "biome lint .",
     "test": "bun test"
   },
   "devDependencies": {
-    "@types/bun": "latest"
+    "@biomejs/biome": "^2.3.11",
+    "@types/bun": "latest",
+    "typescript": "^5.0.0"
   },
   "peerDependencies": {
     "typescript": "^5"
