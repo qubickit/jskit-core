@@ -16,10 +16,26 @@ permissions:
   id-token: write
 
 jobs:
+  precheck:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    outputs:
+      has_npm_token: ${{ steps.token.outputs.has_npm_token }}
+    steps:
+      - id: token
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          if [ -n "${NPM_TOKEN}" ]; then
+            echo "has_npm_token=true" >> "${GITHUB_OUTPUT}"
+          else
+            echo "has_npm_token=false" >> "${GITHUB_OUTPUT}"
+          fi
+
   release:
-    env:
-      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-    if: ${{ env.NPM_TOKEN != '' }}
+    needs: precheck
+    if: ${{ needs.precheck.outputs.has_npm_token == 'true' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
