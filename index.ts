@@ -18,6 +18,19 @@ export {
   writeI64LE,
   writeU64LE,
 } from "./src/primitives/number64.js";
+export type {
+  AssetRecord,
+  RespondAssets,
+  RespondAssetsWithSiblings,
+} from "./src/protocol/assets.js";
+export {
+  AssetRecordType,
+  decodeAssetRecord,
+  decodeRespondAssets,
+  decodeRespondAssetsWithSiblings,
+  encodeRequestAssetsByFilter,
+  encodeRequestAssetsByUniverseIndex,
+} from "./src/protocol/assets.js";
 export { encodeBroadcastTransactionPacket } from "./src/protocol/broadcast-transaction.js";
 export type { RequestContractFunctionParams } from "./src/protocol/contract-function.js";
 export {
@@ -40,6 +53,15 @@ export {
 export { END_RESPONSE_TYPE, readUntilEndResponse } from "./src/protocol/stream.js";
 export type { SystemInfo } from "./src/protocol/system-info.js";
 export { decodeRespondSystemInfo, encodeRequestSystemInfo } from "./src/protocol/system-info.js";
+export type { TickDataView } from "./src/protocol/tick-data.js";
+export {
+  countNonZeroTransactionDigests,
+  decodeBroadcastFutureTickData,
+  encodeRequestTickData,
+  MAX_NUMBER_OF_CONTRACTS,
+  NUMBER_OF_TRANSACTIONS_PER_TICK,
+  TICK_DATA_PAYLOAD_SIZE,
+} from "./src/protocol/tick-data.js";
 export type { CurrentTickInfo } from "./src/protocol/tick-info.js";
 export {
   decodeRespondCurrentTickInfo,
