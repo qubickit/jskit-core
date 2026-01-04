@@ -2,11 +2,67 @@
 
 Core, low-level TypeScript building blocks for Qubic: identity conversion, seed/key derivation, transaction build/signing, binary codecs, and transports.
 
+## Documentation
+
+- Feature docs: `docs/README.md`
+- Examples: `examples/README.md`
+
+### Feature pages
+
+- Identity: `docs/identity.md`
+- Seed & keys: `docs/seed-and-keys.md`
+- Transactions: `docs/transactions.md`
+- Protocol & codecs: `docs/protocol.md`
+- Transports: `docs/transports.md`
+
 ## Install
 
 ```bash
 bun add jskit-core
 ```
+
+## API Overview
+
+### Identity
+
+- `identityFromPublicKey(publicKey32, { lowerCase? })`
+- `publicKeyFromIdentity(identity60)`
+- `verifyIdentity(identity60)`
+
+### Seed & keys
+
+- `SEED_LENGTH`
+- `privateKeyFromSeed(seed, index?)`
+- `publicKeyFromSeed(seed, index?)`
+- `identityFromSeed(seed, index?)`
+
+### Transactions
+
+- `buildUnsignedTransaction(...)`
+- `unsignedTransactionDigest(unsignedTxBytes)`
+- `signTransaction(unsignedTxBytes, secretKey32)`
+- `buildSignedTransaction(...)`
+- `transactionDigest(txBytes)`
+- `transactionId(txBytes)`
+- Constants: `TRANSACTION_HEADER_SIZE`, `SIGNATURE_LENGTH`, `MAX_TRANSACTION_SIZE`, `MAX_INPUT_SIZE`
+
+### Protocol & codecs
+
+- Framing: `createPacketFramer`, `encodeRequestResponseHeader`, `decodeRequestResponseHeader`
+- Requests: `encodeRequestPacket`, `NetworkMessageType`
+- Tick info: `encodeRequestCurrentTickInfo`, `decodeRespondCurrentTickInfo`
+- Entity: `encodeRequestEntity`, `decodeRespondEntity`
+- System info: `encodeRequestSystemInfo`, `decodeRespondSystemInfo`
+- Contract function: `encodeRequestContractFunction`, `decodeRespondContractFunction`
+- Broadcast tx: `encodeBroadcastTransactionPacket`
+- Tick data: `encodeRequestTickData`, `decodeBroadcastFutureTickData`, `countNonZeroTransactionDigests`
+- Assets: `encodeRequestAssetsByFilter`, `encodeRequestAssetsByUniverseIndex`, `decodeRespondAssets`, `decodeRespondAssetsWithSiblings`, `decodeAssetRecord`
+- Stream helper: `readUntilEndResponse`
+
+### Transports
+
+- `createTcpTransport({ host, port, signal? })` (Node)
+- `createBridgeTransport({ url, signal?, WebSocketImpl? })` (browser/WebSocket bridge)
 
 ## Usage
 
@@ -91,4 +147,3 @@ import { createBridgeTransport } from "jskit-core";
 
 const transport = await createBridgeTransport({ url: "wss://bridge.example/ws" });
 ```
-
