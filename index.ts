@@ -1,3 +1,12 @@
+export {
+  MAX_I64,
+  MAX_U64,
+  MIN_I64,
+  readI64LE,
+  readU64LE,
+  writeI64LE,
+  writeU64LE,
+} from "./src/primitives/number64.js";
 export type { Packet, PacketFramer } from "./src/protocol/packet-framer.js";
 export { createPacketFramer } from "./src/protocol/packet-framer.js";
 export type { RequestResponseHeaderFields } from "./src/protocol/request-response-header.js";
