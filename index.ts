@@ -18,8 +18,13 @@ export {
   writeI64LE,
   writeU64LE,
 } from "./src/primitives/number64.js";
+export type { RespondEntity } from "./src/protocol/entity.js";
+export { decodeRespondEntity, encodeRequestEntity } from "./src/protocol/entity.js";
+export { NetworkMessageType } from "./src/protocol/message-types.js";
 export type { Packet, PacketFramer } from "./src/protocol/packet-framer.js";
 export { createPacketFramer } from "./src/protocol/packet-framer.js";
+export type { EncodeRequestPacketOptions } from "./src/protocol/request-packet.js";
+export { encodeRequestPacket } from "./src/protocol/request-packet.js";
 export type { RequestResponseHeaderFields } from "./src/protocol/request-response-header.js";
 export {
   decodeRequestResponseHeader,
@@ -27,6 +32,11 @@ export {
   MAX_PACKET_SIZE,
 } from "./src/protocol/request-response-header.js";
 export { END_RESPONSE_TYPE, readUntilEndResponse } from "./src/protocol/stream.js";
+export type { CurrentTickInfo } from "./src/protocol/tick-info.js";
+export {
+  decodeRespondCurrentTickInfo,
+  encodeRequestCurrentTickInfo,
+} from "./src/protocol/tick-info.js";
 export {
   buildSignedTransaction,
   buildUnsignedTransaction,
