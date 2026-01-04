@@ -35,6 +35,7 @@ jobs:
         run: |
           bun run check
           bunx tsc -p tsconfig.json
+          bun run build
           bun test
 
       - name: Release

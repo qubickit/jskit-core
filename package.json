@@ -1,7 +1,7 @@
 {
   "name": "@qubic-labs/core",
   "version": "0.0.0-development",
-  "module": "index.ts",
+  "module": "./dist/index.js",
   "type": "module",
   "repository": {
     "type": "git",
@@ -13,10 +13,12 @@
   },
   "homepage": "https://github.com/qubickit/jskit-core/tree/main/jskit-core#readme",
   "scripts": {
+    "build": "tsc -p tsconfig.build.json",
     "check": "biome check .",
     "format": "biome format --write .",
     "lint": "biome lint .",
     "test": "bun test",
+    "prepack": "bun run build",
     "release": "semantic-release"
   },
   "devDependencies": {
@@ -40,12 +42,18 @@
   "publishConfig": {
     "access": "public"
   },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "types": "./dist/index.d.ts",
   "files": [
-    "index.ts",
-    "src/",
+    "dist/",
     "README.md",
     "CHANGELOG.md",
-    "docs/",
-    "examples/"
+    "docs/"
   ]
 }
