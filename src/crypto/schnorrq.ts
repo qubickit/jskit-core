@@ -2,6 +2,8 @@ import wasmCrypto from "./wasm/index.js";
 
 export type Schnorrq = Readonly<{
   generatePublicKey(secretKey: Uint8Array): Uint8Array;
+  sign(secretKey: Uint8Array, publicKey: Uint8Array, messageDigest32: Uint8Array): Uint8Array;
+  verify(publicKey: Uint8Array, messageDigest32: Uint8Array, signature64: Uint8Array): number;
 }>;
 
 export type WasmCrypto = Readonly<{

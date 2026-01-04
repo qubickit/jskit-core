@@ -27,5 +27,16 @@ export {
   MAX_PACKET_SIZE,
 } from "./src/protocol/request-response-header.js";
 export { END_RESPONSE_TYPE, readUntilEndResponse } from "./src/protocol/stream.js";
+export {
+  buildSignedTransaction,
+  buildUnsignedTransaction,
+  MAX_INPUT_SIZE,
+  MAX_TRANSACTION_SIZE,
+  SIGNATURE_LENGTH,
+  TRANSACTION_HEADER_SIZE,
+  transactionDigest,
+  transactionId,
+  unsignedTransactionDigest,
+} from "./src/transactions/transaction.js";
 export { createTcpTransport } from "./src/transport/tcp.js";
 export type { Transport } from "./src/transport/transport.js";

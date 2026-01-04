@@ -1,4 +1,5 @@
 import { identityFromPublicKey } from "../primitives/identity.js";
+import { k12 } from "./k12.js";
 import { getWasmCrypto } from "./schnorrq.js";
 
 export const SEED_LENGTH = 55;
@@ -43,18 +44,11 @@ function applySeedIndex(preimage: Uint8Array, index: number) {
   }
 }
 
-async function k12Hash(input: Uint8Array, outLen: number, outOffset = 0): Promise<Uint8Array> {
-  const { K12 } = await getWasmCrypto();
-  const out = new Uint8Array(outLen + outOffset);
-  K12(input, out, outLen, outOffset);
-  return out;
-}
-
 export async function privateKeyFromSeed(seed: string, index = 0): Promise<Uint8Array> {
   assertSeed(seed);
   const preimage = seedToBytes(seed);
   applySeedIndex(preimage, index);
-  return k12Hash(preimage, 32);
+  return k12(preimage, 32);
 }
 
 export async function publicKeyFromSeed(seed: string, index = 0): Promise<Uint8Array> {
