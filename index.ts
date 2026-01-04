@@ -1,4 +1,10 @@
 export {
+  identityFromSeed,
+  privateKeyFromSeed,
+  publicKeyFromSeed,
+  SEED_LENGTH,
+} from "./src/crypto/seed.js";
+export {
   identityFromPublicKey,
   publicKeyFromIdentity,
   verifyIdentity,
