@@ -10,7 +10,7 @@ Exports:
 ## Examples
 
 ```ts
-import { identityFromPublicKey, publicKeyFromIdentity, verifyIdentity } from "jskit-core";
+import { identityFromPublicKey, publicKeyFromIdentity, verifyIdentity } from "@qubic-lib/jskit-core";
 
 const id = "AFZPUAIYVPNUYGJRQVLUKOPPVLHAZQTGLYAAUUNBXFTVTAMSBKQBLEIEPCVJ";
 console.log(verifyIdentity(id)); // true/false
@@ -23,4 +23,3 @@ console.log(identityFromPublicKey(pub)); // same as id (uppercase by default)
 
 - `publicKeyFromIdentity` throws on invalid format or checksum mismatch.
 - `verifyIdentity` is a boolean wrapper around `publicKeyFromIdentity`.
-

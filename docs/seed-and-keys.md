@@ -16,11 +16,10 @@ Exports:
 ## Examples
 
 ```ts
-import { identityFromSeed, privateKeyFromSeed, publicKeyFromSeed } from "jskit-core";
+import { identityFromSeed, privateKeyFromSeed, publicKeyFromSeed } from "@qubic-lib/jskit-core";
 
 const seed = "jvhbyzjinlyutyuhsweuxiwootqoevjqwqmdhjeohrytxjxidpbcfyg";
 console.log(await identityFromSeed(seed));
 console.log(await publicKeyFromSeed(seed));     // Uint8Array(32)
 console.log(await privateKeyFromSeed(seed, 0)); // Uint8Array(32)
 ```
-

@@ -1,12 +1,17 @@
 {
-  "name": "jskit-core",
+  "name": "@qubic-lib/jskit-core",
   "version": "0.0.0-development",
   "module": "index.ts",
   "type": "module",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jskit-core/jskit-core.git"
+    "url": "git+https://github.com/qubickit/jskit-core.git",
+    "directory": "jskit-core"
   },
+  "bugs": {
+    "url": "https://github.com/qubickit/jskit-core/issues"
+  },
+  "homepage": "https://github.com/qubickit/jskit-core/tree/main/jskit-core#readme",
   "scripts": {
     "check": "biome check .",
     "format": "biome format --write .",

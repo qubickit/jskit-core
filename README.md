@@ -18,7 +18,7 @@ Core, low-level TypeScript building blocks for Qubic: identity conversion, seed/
 ## Install
 
 ```bash
-bun add jskit-core
+bun add @qubic-lib/jskit-core
 ```
 
 ## API Overview
@@ -69,7 +69,7 @@ bun add jskit-core
 ### Derive identity from seed
 
 ```ts
-import { identityFromSeed } from "jskit-core";
+import { identityFromSeed } from "@qubic-lib/jskit-core";
 
 const seed = "jvhbyzjinlyutyuhsweuxiwootqoevjqwqmdhjeohrytxjxidpbcfyg";
 console.log(await identityFromSeed(seed));
@@ -85,7 +85,7 @@ import {
   identityFromSeed,
   privateKeyFromSeed,
   publicKeyFromIdentity,
-} from "jskit-core";
+} from "@qubic-lib/jskit-core";
 
 const host = "127.0.0.1";
 const port = 21841;
@@ -119,7 +119,7 @@ import {
   decodeRespondCurrentTickInfo,
   encodeRequestCurrentTickInfo,
   NetworkMessageType,
-} from "jskit-core";
+} from "@qubic-lib/jskit-core";
 
 const transport = await createTcpTransport({ host: "127.0.0.1", port: 21841 });
 const framer = createPacketFramer();
@@ -143,7 +143,7 @@ for await (const chunk of transport.read()) {
 If you have a WebSocket bridge that forwards binary frames to a Qubic node TCP connection, you can use:
 
 ```ts
-import { createBridgeTransport } from "jskit-core";
+import { createBridgeTransport } from "@qubic-lib/jskit-core";
 
 const transport = await createBridgeTransport({ url: "wss://bridge.example/ws" });
 ```
