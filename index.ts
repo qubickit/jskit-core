@@ -1,4 +1,9 @@
 export {
+  identityFromPublicKey,
+  publicKeyFromIdentity,
+  verifyIdentity,
+} from "./src/primitives/identity.js";
+export {
   MAX_I64,
   MAX_U64,
   MIN_I64,
