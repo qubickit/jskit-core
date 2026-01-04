@@ -38,6 +38,8 @@ export {
   MAX_PACKET_SIZE,
 } from "./src/protocol/request-response-header.js";
 export { END_RESPONSE_TYPE, readUntilEndResponse } from "./src/protocol/stream.js";
+export type { SystemInfo } from "./src/protocol/system-info.js";
+export { decodeRespondSystemInfo, encodeRequestSystemInfo } from "./src/protocol/system-info.js";
 export type { CurrentTickInfo } from "./src/protocol/tick-info.js";
 export {
   decodeRespondCurrentTickInfo,

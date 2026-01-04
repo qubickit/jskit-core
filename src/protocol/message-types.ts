@@ -7,4 +7,6 @@ export const NetworkMessageType = {
   RESPOND_ENTITY: 32,
   END_RESPONSE: 35,
   BROADCAST_TRANSACTION: 24,
+  REQUEST_SYSTEM_INFO: 46,
+  RESPOND_SYSTEM_INFO: 47,
 } as const;
