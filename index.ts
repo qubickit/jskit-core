@@ -78,5 +78,6 @@ export {
   transactionId,
   unsignedTransactionDigest,
 } from "./src/transactions/transaction.js";
+export { createBridgeTransport } from "./src/transport/bridge.js";
 export { createTcpTransport } from "./src/transport/tcp.js";
 export type { Transport } from "./src/transport/transport.js";
