@@ -1,3 +1,5 @@
+export type { Packet, PacketFramer } from "./src/protocol/packet-framer.js";
+export { createPacketFramer } from "./src/protocol/packet-framer.js";
 export type { RequestResponseHeaderFields } from "./src/protocol/request-response-header.js";
 export {
   decodeRequestResponseHeader,
