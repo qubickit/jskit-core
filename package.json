@@ -1,6 +1,6 @@
 {
   "name": "@qubic-labs/core",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "module": "./dist/index.js",
   "type": "module",
   "repository": {
