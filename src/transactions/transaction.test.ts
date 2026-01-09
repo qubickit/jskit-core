@@ -1,5 +1,5 @@
 import { describe, expect, it } from "bun:test";
-import { getWasmCrypto } from "../crypto/schnorrq.js";
+import { verify } from "../crypto/schnorrq.js";
 import { privateKeyFromSeed } from "../crypto/seed.js";
 import { publicKeyFromIdentity } from "../primitives/identity.js";
 import {
@@ -71,8 +71,7 @@ describe("transaction", () => {
     expect(signed.byteLength).toBe(TRANSACTION_HEADER_SIZE + SIGNATURE_LENGTH);
 
     const signature64 = signed.subarray(signed.byteLength - SIGNATURE_LENGTH);
-    const { schnorrq } = await getWasmCrypto();
-    expect(schnorrq.verify(sourcePublicKey32, digest32, signature64)).toBe(1);
+    expect(verify(sourcePublicKey32, digest32, signature64)).toBe(1);
 
     const id = await transactionId(signed);
     expect(id.length).toBe(60);

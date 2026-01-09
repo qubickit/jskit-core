@@ -1,5 +1,5 @@
 import { k12 } from "../crypto/k12.js";
-import { getWasmCrypto } from "../crypto/schnorrq.js";
+import { sign } from "../crypto/schnorrq.js";
 import { identityFromPublicKey } from "../primitives/identity.js";
 import { MAX_I64, MIN_I64, writeI64LE } from "../primitives/number64.js";
 
@@ -113,8 +113,7 @@ export async function signTransaction(
 
   const digest32 = await unsignedTransactionDigest(unsignedTxBytes);
   const publicKey32 = unsignedTxBytes.subarray(0, 32);
-  const { schnorrq } = await getWasmCrypto();
-  return schnorrq.sign(secretKey32, publicKey32, digest32);
+  return sign(secretKey32, publicKey32, digest32);
 }
 
 export async function buildSignedTransaction(

@@ -1,6 +1,6 @@
 import { identityFromPublicKey } from "../primitives/identity.js";
 import { k12 } from "./k12.js";
-import { getWasmCrypto } from "./schnorrq.js";
+import { generatePublicKey } from "./schnorrq.js";
 
 export const SEED_LENGTH = 55;
 
@@ -53,8 +53,7 @@ export async function privateKeyFromSeed(seed: string, index = 0): Promise<Uint8
 
 export async function publicKeyFromSeed(seed: string, index = 0): Promise<Uint8Array> {
   const privateKey = await privateKeyFromSeed(seed, index);
-  const { schnorrq } = await getWasmCrypto();
-  return schnorrq.generatePublicKey(privateKey);
+  return generatePublicKey(privateKey);
 }
 
 export async function identityFromSeed(seed: string, index = 0): Promise<string> {

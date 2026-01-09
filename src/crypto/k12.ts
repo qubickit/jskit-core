@@ -1,4 +1,4 @@
-import { getWasmCrypto } from "./schnorrq.js";
+import { k12 as k12Hash } from "@qubic-labs/schnorrq";
 
 export async function k12(input: Uint8Array, dkLen: number): Promise<Uint8Array> {
   if (!(input instanceof Uint8Array)) {
@@ -8,8 +8,5 @@ export async function k12(input: Uint8Array, dkLen: number): Promise<Uint8Array>
     throw new RangeError("dkLen must be a non-negative integer");
   }
 
-  const { K12 } = await getWasmCrypto();
-  const out = new Uint8Array(dkLen);
-  K12(input, out, dkLen);
-  return out;
+  return k12Hash(input, dkLen);
 }
