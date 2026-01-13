@@ -70,6 +70,7 @@ export {
 export {
   buildSignedTransaction,
   buildUnsignedTransaction,
+  signTransaction,
   MAX_INPUT_SIZE,
   MAX_TRANSACTION_SIZE,
   SIGNATURE_LENGTH,
@@ -78,6 +79,7 @@ export {
   transactionId,
   unsignedTransactionDigest,
 } from "./src/transactions/transaction.js";
+export type { BuildUnsignedTransactionParams } from "./src/transactions/transaction.js";
 export { createBridgeTransport } from "./src/transport/bridge.js";
 export { createTcpTransport } from "./src/transport/tcp.js";
 export type { Transport } from "./src/transport/transport.js";
