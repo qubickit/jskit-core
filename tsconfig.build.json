@@ -9,6 +9,6 @@
     "sourceMap": true,
     "allowImportingTsExtensions": false
   },
-  "include": ["index.ts", "src/**/*.ts", "src/**/*.js"],
+  "include": ["index.ts", "index.browser.ts", "src/**/*.ts", "src/**/*.js"],
   "exclude": ["**/*.test.ts", "examples/**", "docs/**", "node_modules/**", "dist/**"]
 }
