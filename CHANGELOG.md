@@ -1,3 +1,9 @@
+## [1.0.3](https://github.com/qubickit/jskit-core/compare/v1.0.2...v1.0.3) (2026-01-18)
+
+### Bug Fixes
+
+* **core:** add browser entrypoint ([8538795](https://github.com/qubickit/jskit-core/commit/8538795686df9709cb81e01c4135d796bdb6295f))
+
 ## [1.0.2](https://github.com/qubickit/jskit-core/compare/v1.0.1...v1.0.2) (2026-01-13)
 
 ## [1.0.1](https://github.com/qubickit/jskit-core/compare/v1.0.0...v1.0.1) (2026-01-09)
